@@ -41,11 +41,12 @@ pip install -r requirements.txt
    uvicorn extractlora.api.main:app --reload
    ```
 
-   Puis tester avec :
+   - Interface web : <http://127.0.0.1:8000/> (dépôt d'une image → JSON extrait)
+   - En ligne de commande :
 
-   ```bash
-   curl -F "file=@extractlora/data/synthetic/images/invoice_0000.png" http://127.0.0.1:8000/extract
-   ```
+     ```bash
+     curl -F "file=@extractlora/data/synthetic/images/invoice_0000.png" http://127.0.0.1:8000/extract
+     ```
 
 ## Structure
 
@@ -56,7 +57,7 @@ extractlora/
   ocr/           Extraction de texte brut (EasyOCR)
   extraction/    Prompting + pipeline génération -> validation JSON
   training/      Fine-tuning LoRA (peft)
-  api/           Service FastAPI de démonstration
+  api/           Service FastAPI de démonstration + interface web (api/static/)
   scripts/       Test de bout en bout
 adapters/        Adaptateurs LoRA entraînés (un dossier par type de document)
 ```
